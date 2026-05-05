@@ -11,12 +11,7 @@ mongoose.connect('mongodb://localhost:27017/SEC-CB', {
 
 
 app.use(express.json());
-app.use(methodOverride('_method'));
-app.use(session({
-  secret: 'xyz@123',
-  saveUninitialized: false,
-  store: MongoStore.create({ mongoUrl: 'mongodb://localhost:27017/SEC-CB' })
-}));
+
 
 const loginRoutes = require('./routes/login');
 app.use('/', loginRoutes);
